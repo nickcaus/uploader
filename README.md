@@ -1,1 +1,1 @@
-SEE https://github.com/nickcaus/uploader/wiki
+please see https://github.com/nickcaus/uploader/wiki
