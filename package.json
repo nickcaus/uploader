@@ -1,0 +1,12 @@
+{
+  "name": "upload-server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "author": "Nick Urmach <nick@urmach.net>",
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^8.4.0",
+    "websocket": "^1.0.18"
+  }
+}
