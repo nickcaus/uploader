@@ -1,2 +1,0 @@
-mkdir /home/zenookscom/code
-put -rp "${HOME}/clone/*" /home/zenookscom/code/

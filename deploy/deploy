@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/code/uploader
+git pull origin master
