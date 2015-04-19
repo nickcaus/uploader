@@ -12,6 +12,8 @@ function updateStatus(message, control) {
 }
 
 var readChunkSize = 100;
+var readChunkSizeT = 65536;
+
 
 function getFileChecksum(fileHanlde, callback) {
 	var fileSize = fileHanlde.size;
@@ -55,8 +57,8 @@ function startFileTransfer(fileHanlde, fileChecksum) {
 			socket.close();
 		} else {
 	        updateStatus('Sending ... ' + Math.round (fileOffset * 100 / fileHanlde.size) + '%');
-			sendFileBlock(fileOffset, fileOffset + readChunkSize, fileHanlde, socket);
-			fileOffset += readChunkSize;
+			sendFileBlock(fileOffset, fileOffset + readChunkSizeT, fileHanlde, socket);
+			fileOffset += readChunkSizeT;
 		}
 	}
 }
