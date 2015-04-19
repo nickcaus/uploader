@@ -36,7 +36,7 @@ function getFileChecksum(fileHanlde, callback) {
 }
 
 function startFileTransfer(fileHanlde, fileChecksum) {
-	var socket = new WebSocket(window.location.origin.replace('http', 'ws') + 'upload/');
+	var socket = new WebSocket(window.location.origin.replace('http', 'ws') + '/upload/');
 	var fileOffset = 0;
 	socket.binaryType = "arraybuffer";
 	socket.onopen = function (e) {
