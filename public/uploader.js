@@ -18,7 +18,7 @@ var readChunkSizeT = 65536;
 function getFileChecksum(fileHanlde, callback) {
 	var fileSize = fileHanlde.size;
 	var fromByte = 0;
-	var toByte = readChunkSize;
+	var toByte = readChunkSizeT;
 	var fileChecksum;
 	var reader = new FileReader();
 	reader.onload = function() {
@@ -27,7 +27,7 @@ function getFileChecksum(fileHanlde, callback) {
         fileChecksum = zcrc32.getChecksum(reader.result, previousChecksum);
         if (toByte < fileSize) {
         	fromByte = toByte + 1;
-        	toByte += readChunkSize;
+        	toByte += readChunkSizeT;
         	reader.readAsArrayBuffer(fileHanlde.slice(fromByte, toByte));
         } else {
         	updateStatus('File checksum was calculated');
