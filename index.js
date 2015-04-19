@@ -4,7 +4,7 @@ var fs = require('fs');
 var hapi = require('hapi');
 var webserver = new hapi.Server({});
 
-webserver.connection({ port: 8182 });
+webserver.connection({ port: 8080 });
 
 webserver.route({
     method: 'GET',
