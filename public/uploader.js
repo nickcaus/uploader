@@ -11,14 +11,13 @@ function updateStatus(message, control) {
 	}
 }
 
-var readChunkSize = 100;
-var readChunkSizeT = 65536;
+var readChunkSize = 65536;
 
 
 function getFileChecksum(fileHanlde, callback) {
 	var fileSize = fileHanlde.size;
 	var fromByte = 0;
-	var toByte = readChunkSizeT;
+	var toByte = readChunkSize;
 	var fileChecksum;
 	var reader = new FileReader();
 	reader.onload = function() {
@@ -27,7 +26,7 @@ function getFileChecksum(fileHanlde, callback) {
         fileChecksum = zcrc32.getChecksum(reader.result, previousChecksum);
         if (toByte < fileSize) {
         	fromByte = toByte + 1;
-        	toByte += readChunkSizeT;
+        	toByte += readChunkSize;
         	reader.readAsArrayBuffer(fileHanlde.slice(fromByte, toByte));
         } else {
         	updateStatus('File checksum was calculated');
@@ -57,8 +56,8 @@ function startFileTransfer(fileHanlde, fileChecksum) {
 			socket.close();
 		} else {
 	        updateStatus('Sending ... ' + Math.round (fileOffset * 100 / fileHanlde.size) + '%');
-			sendFileBlock(fileOffset, fileOffset + readChunkSizeT, fileHanlde, socket);
-			fileOffset += readChunkSizeT;
+			sendFileBlock(fileOffset, fileOffset + readChunkSize, fileHanlde, socket);
+			fileOffset += readChunkSize;
 		}
 	}
 }
