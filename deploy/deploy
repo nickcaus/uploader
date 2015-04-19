@@ -2,3 +2,4 @@
 
 cd ~/code/uploader
 git pull origin master
+npm install
